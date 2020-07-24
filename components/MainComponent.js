@@ -3,8 +3,9 @@ import Menu from "./MenuComponent";
 import { DISHES } from "../shared/dishes";
 import Dishdetail from "./DishdetailComponent";
 import { View, Platform } from "react-native";
-import { createStackNavigator } from "react-navigation"; // Instructor used this to import createStackNavigation
-// import { createStackNavigator } from "react-navigation-stack"; // according to google
+// in newer version of Expo, Expo is replaced with ExpoStatusBar
+import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
+import { createStackNavigator } from "react-navigation";
 
 const MenuNavigator = createStackNavigator(
   {
@@ -43,8 +44,7 @@ class Main extends Component {
       <View
         style={{
           flex: 1,
-          paddingTop:
-            Platform.OS === "ios" ? 0 : Expo.Constants.statusBarHeight,
+          paddingTop: Platform.OS === "ios" ? 0 : ExpoStatusBar.statusBarHeight,
         }}
       >
         <MenuNavigator />
