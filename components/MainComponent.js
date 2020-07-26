@@ -9,6 +9,9 @@ import { View, Platform } from "react-native";
 import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 
+// to disable warnings in Expo App
+console.disableYellowBox = true;
+
 const MenuNavigator = createStackNavigator(
     {
         Menu: { screen: Menu },
