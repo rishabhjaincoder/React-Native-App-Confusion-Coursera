@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Menu from "./MenuComponent";
 import Home from "./HomeComponent";
+import Contact from "./ContactComponent";
+import About from "./AboutComponent";
 import Dishdetail from "./DishdetailComponent";
 import { View, Platform } from "react-native";
 // in newer version of Expo, Expo is replaced with ExpoStatusBar
@@ -44,6 +46,40 @@ const HomeNavigator = createStackNavigator(
     }
 );
 
+const ContactNavigator = createStackNavigator(
+    {
+        Contact: { screen: Contact },
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: "#512DA8",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                color: "#fff",
+            },
+        },
+    }
+);
+
+const AboutNavigator = createStackNavigator(
+    {
+        About: { screen: About },
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: "#512DA8",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                color: "#fff",
+            },
+        },
+    }
+);
+
 // this is drawer based navigation
 const MainNavigator = createDrawerNavigator(
     {
@@ -51,16 +87,31 @@ const MainNavigator = createDrawerNavigator(
             screen: HomeNavigator,
             navigationOptions: {
                 title: "Home",
-                drawerLabel: "Home",
-            },
+                drawerLabel: "Home"
+            }
+        },
+        About: {
+            screen: AboutNavigator,
+            navigationOptions: {
+                title: "About Us",
+                drawerLabel: "About Us"
+            }
         },
         Menu: {
             screen: MenuNavigator,
             navigationOptions: {
                 title: "Menu",
-                drawerLabel: "Menu",
-            },
+                drawerLabel: "Menu"
+            }
         },
+        Contact: {
+            screen: ContactNavigator,
+            navigationOptions: {
+                title: "Contact Us",
+                drawerLabel: "Contact Us"
+            }
+        },
+
     },
     {
         drawerBackgroundColor: "#D1C4E9",
